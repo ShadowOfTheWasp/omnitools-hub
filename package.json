@@ -1,0 +1,11 @@
+{
+  "name": "omnitools-hub-50-monetized-seo",
+  "version": "3.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node api/completion.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
