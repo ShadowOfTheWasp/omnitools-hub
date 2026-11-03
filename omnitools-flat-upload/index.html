@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">OmniTools — 50 High-Utility Online Calculators & AI Micro-Apps</title>
+  
+  <!-- Dynamic Primary SEO Tags -->
+  <meta id="page-desc" name="description" content="Free online B2B finance calculators, developer utilities, e-commerce profit tools, and AI text generators." />
+  <meta name="robots" content="index, follow" />
+  <link id="canonical-url" rel="canonical" href="https://omnitools.app/" />
+
+  <!-- Dynamic Open Graph / Facebook -->
+  <meta id="og-title" property="og:title" content="OmniTools — 50 Utility Micro-Apps" />
+  <meta id="og-desc" property="og:description" content="Instant B2B, developer, legal, and marketing tools built for fast performance." />
+  <meta property="og:type" content="website" />
+  <meta id="og-url" property="og:url" content="https://omnitools.app/" />
+
+  <!-- Dynamic Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta id="tw-title" name="twitter:title" content="OmniTools Hub" />
+  <meta id="tw-desc" name="twitter:description" content="Free micro-utility apps and AI generators." />
+
+  <!-- Dynamic JSON-LD Schema Container -->
+  <script id="json-ld-schema" type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "OmniTools Hub",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-base: #0f172a;
+      --bg-surface: #1e293b;
+      --bg-card: #334155;
+      --border-color: #475569;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-green: #22c55e;
+      --accent-warn: #f59e0b;
+      --accent-ai: #a855f7;
+      --sidebar-width: 290px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background-color: var(--bg-base); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+
+    /* Sidebar Navigation */
+    aside { width: var(--sidebar-width); background: var(--bg-surface); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; }
+    .brand { padding: 1.25rem; font-weight: 700; font-size: 1.25rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+    .brand span { color: var(--accent-blue); }
+    .search-box { padding: 0.75rem; border-bottom: 1px solid var(--border-color); }
+    .search-box input { width: 100%; padding: 0.5rem 0.75rem; background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-main); font-size: 0.875rem; }
+    
+    .tool-list { flex: 1; overflow-y: auto; padding: 0.5rem; }
+    .category-title { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-blue); font-weight: 700; padding: 0.85rem 0.5rem 0.25rem; letter-spacing: 0.05em; }
+    .tool-nav-item { display: block; padding: 0.5rem 0.75rem; color: var(--text-muted); text-decoration: none; border-radius: 6px; font-size: 0.85rem; transition: all 0.15s ease; margin-bottom: 2px; }
+    .tool-nav-item:hover { background: var(--bg-card); color: var(--text-main); }
+    .tool-nav-item.active { background: var(--accent-blue); color: #0f172a; font-weight: 600; }
+
+    /* Main Content Stage */
+    main { flex: 1; display: flex; flex-direction: column; overflow-y: auto; }
+    header { padding: 1rem 2rem; background: var(--bg-surface); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+    .status-badge { background: rgba(34, 197, 94, 0.15); border: 1px solid var(--accent-green); color: var(--accent-green); padding: 0.3rem 0.7rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; }
+    .status-badge::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; }
+
+    .content-layout { display: flex; max-width: 1200px; margin: 0 auto; width: 100%; padding: 2rem; gap: 1.5rem; flex: 1; }
+    .main-stage { flex: 1; min-width: 0; }
+
+    /* Ad Units — High eCPM Optimization */
+    .ad-banner { background: var(--bg-surface); border: 1px dashed var(--border-color); border-radius: 8px; padding: 0.75rem; text-align: center; color: var(--text-muted); font-size: 0.75rem; margin-bottom: 1.5rem; min-height: 90px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.25rem; }
+    .ad-sidebar { width: 250px; background: var(--bg-surface); border: 1px dashed var(--border-color); border-radius: 8px; padding: 1rem; text-align: center; color: var(--text-muted); font-size: 0.75rem; height: 600px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.5rem; position: sticky; top: 2rem; }
+    .ad-tag { background: rgba(56, 189, 248, 0.1); color: var(--accent-blue); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; }
+
+    /* UI Cards & Form Controls */
+    .card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-main); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .ai-badge { background: rgba(168, 85, 247, 0.2); color: #d8b4fe; border: 1px solid var(--accent-ai); font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 600; text-transform: uppercase; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.6rem; background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-main); font-size: 0.9rem; }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; background: var(--accent-blue); color: #0f172a; font-weight: 600; border: none; padding: 0.65rem 1.25rem; border-radius: 6px; cursor: pointer; transition: opacity 0.15s ease; width: 100%; margin-top: 0.5rem; }
+    .btn:hover { opacity: 0.9; }
+    .btn-ai { background: var(--accent-ai); color: #fff; }
+
+    .result-box { background: var(--bg-base); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem; margin-top: 1rem; }
+    .result-row { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .result-row:last-child { border-bottom: none; }
+    .highlight-val { color: var(--accent-green); font-weight: 700; font-size: 1.1rem; }
+    .text-output { width: 100%; height: 120px; background: var(--bg-base); border: 1px solid var(--border-color); color: var(--accent-blue); padding: 0.75rem; font-family: monospace; font-size: 0.85rem; border-radius: 6px; margin-top: 0.5rem; resize: none; }
+
+    @media (max-width: 1024px) { .ad-sidebar { display: none; } }
+    @media (max-width: 768px) { body { flex-direction: column; } aside { width: 100%; height: auto; } .grid-2 { grid-template-columns: 1fr; } .content-layout { padding: 1rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside>
+    <div class="brand">Omni<span>Tools</span> <span style="font-size:0.65rem; background:var(--accent-ai); color:#fff; padding:0.1rem 0.3rem; border-radius:4px;">50 Apps</span></div>
+    <div class="search-box">
+      <input type="text" id="tool-search" placeholder="Search 50 tools..." oninput="filterTools()" aria-label="Search tools" />
+    </div>
+    <nav class="tool-list" id="nav-container" aria-label="Utility Tools Navigation"></nav>
+  </aside>
+
+  <!-- Main Content Stage -->
+  <main>
+    <header>
+      <div>
+        <h1 id="tool-title" style="font-size: 1.15rem; font-weight: 700;">Select a Tool</h1>
+        <p id="tool-subtitle" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">Free online utility micro-app</p>
+      </div>
+      <div class="status-badge">AI Active & Monetized</div>
+    </header>
+
+    <div class="content-layout">
+      <div class="main-stage">
+        <!-- Top Ad Placement (Leaderboard 728x90) -->
+        <div class="ad-banner" id="ad-top-slot">
+          <span class="ad-tag">Top Ad Slot — Premium High-eCPM B2B Network</span>
+          <span>Google AdSense / Mediavine Target Slot (728x90 Leaderboard)</span>
+        </div>
+
+        <article id="tool-app-root"></article>
+
+        <!-- In-Content Interstitial Ad Slot -->
+        <div class="ad-banner" id="ad-mid-slot" style="margin-top: 1.5rem;">
+          <span class="ad-tag">In-Content Dynamic Slot</span>
+          <span>Sponsored SaaS & Legal Ad Space (Native Responsive)</span>
+        </div>
+      </div>
+
+      <!-- Right Rail Sticky Sidebar Ad Slot (300x600 Skyscraper) -->
+      <aside class="ad-sidebar" aria-label="Advertisement">
+        <span class="ad-tag">Sidebar High-eCPM Slot</span>
+        <div style="margin-top:2rem;">300x600 Half-Page Skyscraper Banner</div>
+        <div style="margin-top:auto; font-size:0.65rem; color:var(--text-muted);">Targeting Legal, Accounting & Dev Tech Stack Impressions</div>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    async function requestAI(systemPrompt, userPrompt) {
+      const res = await fetch('/api/completion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ systemPrompt, userPrompt })
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || 'AI Request failed');
+      }
+      return data.completion;
+    }
+
+    function renderCalcUi(title, inputsHTML, btnLabel) {
+      return `
+        <div class="card">
+          <div class="card-title">${title}</div>
+          ${inputsHTML}
+          <button class="btn" id="run-btn">${btnLabel}</button>
+        </div>
+        <div class="card" id="res-card" style="display:none;">
+          <div class="card-title">Calculation Breakdown</div>
+          <div class="result-box" id="res-box"></div>
+        </div>`;
+    }
+
+    const TOOL_REGISTRY = [
+      // CATEGORY 1: B2B FINANCE & LEGAL
+      {
+        id: "late-invoice-calculator",
+        path: "late-invoice-calculator",
+        name: "Late Invoice & Interest Calculator",
+        category: "B2B Finance & Legal",
+        title: "B2B Late Invoice Interest & Fee Calculator",
+        description: "Calculate statutory late payment interest penalties, statutory recovery compensation fees, and auto-generate legal payment demand notices.",
+        render: (c) => {
+          c.innerHTML = `
+            <div class="card">
+              <div class="card-title">Invoice Details</div>
+              <div class="grid-2">
+                <div class="form-group"><label>Amount (£ / $)</label><input type="number" id="inv-amount" value="2500" /></div>
+                <div class="form-group"><label>Due Date</label><input type="date" id="inv-due" /></div>
+              </div>
+              <div class="grid-2">
+                <div class="form-group"><label>Interest Rate (%)</label><input type="number" id="inv-rate" value="12.25" /></div>
+                <div class="form-group"><label>Recovery Fee</label><input type="number" id="inv-fee" value="70" /></div>
+              </div>
+              <button class="btn" id="run-btn">Calculate Claim</button>
+            </div>
+            <div class="card" id="res-card" style="display:none;">
+              <div class="card-title"><span>Claim Summary</span> <span class="ai-badge">AI Powered</span></div>
+              <div class="result-box">
+                <div class="result-row"><span>Days Overdue:</span><span id="res-1">0</span></div>
+                <div class="result-row"><span>Total Interest:</span><span id="res-2">£0.00</span></div>
+                <div class="result-row"><span style="font-weight:600;">Total Due:</span><span class="highlight-val" id="res-3">£0.00</span></div>
+              </div>
+              <textarea class="text-output" id="res-text" style="margin-top:1rem;"></textarea>
+              <button class="btn btn-ai" id="ai-btn" style="margin-top:0.75rem;">✨ Draft Legal Demand Letter with AI</button>
+            </div>`;
+          const past = new Date(); past.setDate(past.getDate() - 30);
+          document.getElementById('inv-due').value = past.toISOString().split('T')[0];
+          document.getElementById('run-btn').onclick = () => {
+            const amt = parseFloat(document.getElementById('inv-amount').value)||0;
+            const due = new Date(document.getElementById('inv-due').value);
+            const rate = parseFloat(document.getElementById('inv-rate').value)||0;
+            const fee = parseFloat(document.getElementById('inv-fee').value)||0;
+            const days = Math.max(0, Math.floor((new Date() - due)/(1000*3600*24)));
+            const interest = (amt * (rate/100) / 365) * days;
+            const total = amt + interest + fee;
+            document.getElementById('res-1').innerText = days + " days";
+            document.getElementById('res-2').innerText = "£" + interest.toFixed(2);
+            document.getElementById('res-3').innerText = "£" + total.toFixed(2);
+            document.getElementById('res-text').value = `Overdue invoice of £${amt.toFixed(2)} is ${days} days late. Total claim with fees: £${total.toFixed(2)}.`;
+            document.getElementById('res-card').style.display = 'block';
+          };
+          document.getElementById('ai-btn').onclick = async () => {
+            const txt = document.getElementById('res-text').value;
+            document.getElementById('ai-btn').innerText = "Drafting...";
+            try {
+              document.getElementById('res-text').value = await requestAI("Rewrite into a formal, firm legal demand letter.", txt);
+            } catch(e) { alert(e.message); }
+            document.getElementById('ai-btn').innerText = "✨ Draft Legal Demand Letter with AI";
+          };
+        }
+      },
+      { id:"vat-tax-splitter", path:"vat-tax-splitter", name:"VAT & Sales Tax Splitter", category:"B2B Finance & Legal", title:"VAT Net/Gross Tax Splitter", description:"Split gross invoices into net and sales tax components instantly.", render:(c)=>{ c.innerHTML = renderCalcUi("Tax Splitter", `<div class="grid-2"><div class="form-group"><label>Gross Amount</label><input type="number" id="v1" value="120"/></div><div class="form-group"><label>Tax Rate (%)</label><input type="number" id="v2" value="20"/></div></div>`, "Split Amount"); document.getElementById('run-btn').onclick=()=>{ const a=parseFloat(document.getElementById('v1').value)||0, r=parseFloat(document.getElementById('v2').value)||0, net=a/(1+r/100); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Net Amount:</span><span>£${net.toFixed(2)}</span></div><div class="result-row"><span>Tax Portion:</span><span class="highlight-val">£${(a-net).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"freelance-rate-calculator", path:"freelance-rate-calculator", name:"Freelance Target Rate Calculator", category:"B2B Finance & Legal", title:"Freelance Minimum Day & Hourly Rate Calculator", description:"Calculate target billable day and hourly rates based on net annual salary goals and overheads.", render:(c)=>{ c.innerHTML = renderCalcUi("Target Rate", `<div class="grid-2"><div class="form-group"><label>Target Net Salary</label><input type="number" id="f1" value="60000"/></div><div class="form-group"><label>Annual Overhead</label><input type="number" id="f2" value="10000"/></div></div><div class="form-group"><label>Billable Days/Year</label><input type="number" id="f3" value="180"/></div>`, "Calculate Rates"); document.getElementById('run-btn').onclick=()=>{ const t=parseFloat(document.getElementById('f1').value)||0, o=parseFloat(document.getElementById('f2').value)||0, d=parseFloat(document.getElementById('f3').value)||1, dayRate=(t+o)/d; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Required Day Rate:</span><span class="highlight-val">£${dayRate.toFixed(2)}</span></div><div class="result-row"><span>Hourly Rate (8h):</span><span>£${(dayRate/8).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"corporate-burn-rate", path:"corporate-burn-rate", name:"Startup Cash Burn & Runway", category:"B2B Finance & Legal", title:"Startup Runway & Burn Rate Calculator", description:"Project corporate cash runway in months based on monthly expenses and revenues.", render:(c)=>{ c.innerHTML = renderCalcUi("Runway Calculator", `<div class="grid-2"><div class="form-group"><label>Cash Balance</label><input type="number" id="b1" value="200000"/></div><div class="form-group"><label>Monthly Expenses</label><input type="number" id="b2" value="30000"/></div></div><div class="form-group"><label>Monthly Revenue</label><input type="number" id="b3" value="10000"/></div>`, "Project Runway"); document.getElementById('run-btn').onclick=()=>{ const c=parseFloat(document.getElementById('b1').value)||0, e=parseFloat(document.getElementById('b2').value)||0, r=parseFloat(document.getElementById('b3').value)||0, burn=e-r; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Net Monthly Burn:</span><span>£${burn.toFixed(2)}</span></div><div class="result-row"><span>Runway Remaining:</span><span class="highlight-val">${burn>0?(c/burn).toFixed(1)+' Months':'Infinite (Profitable)'}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"nda-generator-helper", path:"nda-generator-helper", name:"NDA & Legal Term Synthesizer", category:"B2B Finance & Legal", title:"Non-Disclosure Agreement Clause Helper", description:"Generate customized mutual non-disclosure legal clauses instantly using AI.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">NDA Parameters</div><div class="form-group"><label>Disclosing & Receiving Parties</label><input type="text" id="n1" value="Acme Corp and Beta Solutions Ltd"/></div><button class="btn btn-ai" id="run-btn">✨ Synthesize NDA Clause with AI</button></div><div class="card" id="res-card" style="display:none;"><div class="card-title">Generated Clause</div><textarea class="text-output" id="out" style="height:150px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('res-card').style.display='block'; document.getElementById('out').value="Generating..."; try{ document.getElementById('out').value=await requestAI("Write a mutual NDA clause based on parties: "+document.getElementById('n1').value, "Generate standard legal clause."); }catch(e){alert(e.message);} }; } },
+      { id:"saas-mrr-churn-calculator", path:"saas-mrr-churn-calculator", name:"SaaS MRR & Churn Calculator", category:"B2B Finance & Legal", title:"SaaS Monthly Recurring Revenue & Churn Calculator", description:"Calculate net monthly recurring revenue retention and net growth rates.", render:(c)=>{ c.innerHTML=renderCalcUi("MRR Metrics", `<div class="grid-2"><div class="form-group"><label>Starting MRR</label><input type="number" id="m1" value="50000"/></div><div class="form-group"><label>New MRR</label><input type="number" id="m2" value="6000"/></div></div><div class="form-group"><label>Churned MRR</label><input type="number" id="m3" value="2000"/></div>`, "Calculate Net MRR"); document.getElementById('run-btn').onclick=()=>{ const s=parseFloat(document.getElementById('m1').value)||0, n=parseFloat(document.getElementById('m2').value)||0, c=parseFloat(document.getElementById('m3').value)||0, net=s+n-c; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Net Ending MRR:</span><span class="highlight-val">£${net.toFixed(2)}</span></div><div class="result-row"><span>Net Growth Rate:</span><span>${(((n-c)/s)*100).toFixed(1)}%</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"incorporation-tax-estimator", path:"incorporation-tax-estimator", name:"Sole Trader vs Ltd Tax Estimator", category:"B2B Finance & Legal", title:"Sole Trader vs Limited Company Tax Estimator", description:"Compare dividend vs salary tax efficiency between sole trader and corporate structures.", render:(c)=>{ c.innerHTML=renderCalcUi("Tax Efficiency", `<div class="form-group"><label>Annual Business Profit (£)</label><input type="number" id="t1" value="80000"/></div>`, "Compare Structures"); document.getElementById('run-btn').onclick=()=>{ const p=parseFloat(document.getElementById('t1').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Estimated Sole Trader Tax/NI:</span><span>£${(p*0.28).toFixed(2)}</span></div><div class="result-row"><span>Estimated Ltd Corp Tax + Dividend:</span><span class="highlight-val">£${(p*0.22).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"commercial-lease-break-even", path:"commercial-lease-break-even", name:"Commercial Property Rent/SqFt Calculator", category:"B2B Finance & Legal", title:"Commercial Property Rent per SqFt Calculator", description:"Calculate effective commercial lease costs per square foot.", render:(c)=>{ c.innerHTML=renderCalcUi("Lease Cost", `<div class="grid-2"><div class="form-group"><label>Annual Rent</label><input type="number" id="l1" value="45000"/></div><div class="form-group"><label>Square Footage</label><input type="number" id="l2" value="2500"/></div></div>`, "Calculate Rent/SqFt"); document.getElementById('run-btn').onclick=()=>{ const r=parseFloat(document.getElementById('l1').value)||0, s=parseFloat(document.getElementById('l2').value)||1; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Rent / SqFt / Year:</span><span class="highlight-val">£${(r/s).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"r-and-d-tax-credit-calculator", path:"r-and-d-tax-credit-calculator", name:"R&D Tax Credit Claim Estimator", category:"B2B Finance & Legal", title:"UK/US R&D Tax Credit Relief Estimator", description:"Estimate qualifying tech software research tax credit refunds.", render:(c)=>{ c.innerHTML=renderCalcUi("R&D Relief", `<div class="form-group"><label>Qualifying Tech/Software R&D Spend (£)</label><input type="number" id="r1" value="120000"/></div>`, "Estimate Relief"); document.getElementById('run-btn').onclick=()=>{ const s=parseFloat(document.getElementById('r1').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Estimated R&D Tax Credit Cash Benefit:</span><span class="highlight-val">£${(s*0.186).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"invoice-factoring-cost-calculator", path:"invoice-factoring-cost-calculator", name:"Invoice Discounting & Factoring Fee Calculator", category:"B2B Finance & Legal", title:"Invoice Factoring APR & Fee Calculator", description:"Calculate true net advance and effective fee rates of invoice financing.", render:(c)=>{ c.innerHTML=renderCalcUi("Factoring Fee", `<div class="grid-2"><div class="form-group"><label>Invoice Value</label><input type="number" id="if1" value="10000"/></div><div class="form-group"><label>Discount Fee (%)</label><input type="number" id="if2" value="3.5"/></div></div>`, "Calculate Net Advance"); document.getElementById('run-btn').onclick=()=>{ const v=parseFloat(document.getElementById('if1').value)||0, f=parseFloat(document.getElementById('if2').value)||0, fee=v*(f/100); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Total Financing Fee:</span><span>£${fee.toFixed(2)}</span></div><div class="result-row"><span>Net Advance Payout:</span><span class="highlight-val">£${(v-fee).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+
+      // CATEGORY 2: E-COMMERCE & MERCHANTS
+      { id:"landed-cost-auditor", path:"landed-cost-auditor", name:"Landed Cost & Margin Auditor", category:"E-Commerce & Merchants", title:"E-Commerce Landed Cost & Profit Margin Auditor", description:"Audit landed product unit cost factoring freight and tariff fees.", render:(c)=>{ c.innerHTML=renderCalcUi("Landed Cost", `<div class="grid-2"><div class="form-group"><label>Unit Supplier Price</label><input type="number" id="lc1" value="15"/></div><div class="form-group"><label>Freight & Duty / Unit</label><input type="number" id="lc2" value="3.5"/></div></div><div class="form-group"><label>Target Retail Price</label><input type="number" id="lc3" value="50"/></div>`, "Audit Margin"); document.getElementById('run-btn').onclick=()=>{ const s=parseFloat(document.getElementById('lc1').value)||0, f=parseFloat(document.getElementById('lc2').value)||0, p=parseFloat(document.getElementById('lc3').value)||0, landed=s+f, profit=p-landed; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Total Landed Cost:</span><span>£${landed.toFixed(2)}</span></div><div class="result-row"><span>Net Unit Profit:</span><span class="highlight-val">£${profit.toFixed(2)}</span></div><div class="result-row"><span>Margin:</span><span>${((profit/p)*100).toFixed(1)}%</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"stripe-fee-calculator", path:"stripe-fee-calculator", name:"Stripe & Payment Fee Calculator", category:"E-Commerce & Merchants", title:"Stripe & Merchant Fee Payout Calculator", description:"Calculate required charge amount to receive exact target net payout after transaction fees.", render:(c)=>{ c.innerHTML=renderCalcUi("Merchant Fees", `<div class="grid-2"><div class="form-group"><label>Target Net Payout</label><input type="number" id="sf1" value="100"/></div><div class="form-group"><label>Fee %</label><input type="number" id="sf2" value="1.5"/></div></div><div class="form-group"><label>Fixed Fee</label><input type="number" id="sf3" value="0.20"/></div>`, "Calculate Charge"); document.getElementById('run-btn').onclick=()=>{ const t=parseFloat(document.getElementById('sf1').value)||0, p=(parseFloat(document.getElementById('sf2').value)||0)/100, f=parseFloat(document.getElementById('sf3').value)||0, gross=(t+f)/(1-p); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Required Charge:</span><span class="highlight-val">£${gross.toFixed(2)}</span></div><div class="result-row"><span>Processing Fee:</span><span>£${(gross-t).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"dim-weight-calculator", path:"dim-weight-calculator", name:"Dimensional (DIM) Freight Weight", category:"E-Commerce & Merchants", title:"Volumetric Freight DIM Weight Calculator", description:"Calculate dimensional package weight vs actual weight for courier billing.", render:(c)=>{ c.innerHTML=renderCalcUi("DIM Weight", `<div class="grid-2"><div class="form-group"><label>Length (cm)</label><input type="number" id="d1" value="40"/></div><div class="form-group"><label>Width (cm)</label><input type="number" id="d2" value="30"/></div></div><div class="grid-2"><div class="form-group"><label>Height (cm)</label><input type="number" id="d3" value="20"/></div><div class="form-group"><label>Actual Wt (kg)</label><input type="number" id="d4" value="2.5"/></div></div>`, "Calculate Billed Wt"); document.getElementById('run-btn').onclick=()=>{ const l=parseFloat(document.getElementById('d1').value)||0, w=parseFloat(document.getElementById('d2').value)||0, h=parseFloat(document.getElementById('d3').value)||0, act=parseFloat(document.getElementById('d4').value)||0, dim=(l*w*h)/5000; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Dimensional Volumetric Wt:</span><span>${dim.toFixed(2)} kg</span></div><div class="result-row"><span>Billed Weight:</span><span class="highlight-val">${Math.max(act,dim).toFixed(2)} kg</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"return-rate-breakeven", path:"return-rate-breakeven", name:"Max Return Rate Breakeven Calculator", category:"E-Commerce & Merchants", title:"E-Commerce Return Rate Breakeven Calculator", description:"Calculate maximum allowable customer return threshold before losses occur.", render:(c)=>{ c.innerHTML=renderCalcUi("Return Breakeven", `<div class="grid-2"><div class="form-group"><label>Gross Unit Profit</label><input type="number" id="rr1" value="30"/></div><div class="form-group"><label>Return Processing Loss</label><input type="number" id="rr2" value="10"/></div></div>`, "Calculate Max Return %"); document.getElementById('run-btn').onclick=()=>{ const p=parseFloat(document.getElementById('rr1').value)||0, l=parseFloat(document.getElementById('rr2').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Max Allowable Return Rate:</span><span class="highlight-val">${((p/(p+l))*100).toFixed(1)}%</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"amazon-fba-fee-estimator", path:"amazon-fba-fee-estimator", name:"Amazon FBA Net Fee Calculator", category:"E-Commerce & Merchants", title:"Amazon FBA Net Margin & Fee Estimator", description:"Calculate FBA referral and pick/pack fulfillment costs.", render:(c)=>{ c.innerHTML=renderCalcUi("FBA Margins", `<div class="grid-2"><div class="form-group"><label>Selling Price</label><input type="number" id="fba1" value="29.99"/></div><div class="form-group"><label>FBA Pick & Pack</label><input type="number" id="fba2" value="4.50"/></div></div>`, "Estimate FBA Margin"); document.getElementById('run-btn').onclick=()=>{ const p=parseFloat(document.getElementById('fba1').value)||0, f=parseFloat(document.getElementById('fba2').value)||0, ref=p*0.15; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Referral Fee (15%):</span><span>£${ref.toFixed(2)}</span></div><div class="result-row"><span>Net Payout After FBA:</span><span class="highlight-val">£${(p-f-ref).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"inventory-reorder-point-calculator", path:"inventory-reorder-point-calculator", name:"Inventory Reorder Point & Safety Stock", category:"E-Commerce & Merchants", title:"Inventory Safety Stock & Reorder Point Calculator", description:"Calculate exact stock reorder triggers using daily sales velocity and lead time.", render:(c)=>{ c.innerHTML=renderCalcUi("Reorder Point", `<div class="grid-2"><div class="form-group"><label>Daily Unit Sales</label><input type="number" id="ro1" value="50"/></div><div class="form-group"><label>Lead Time (Days)</label><input type="number" id="ro2" value="14"/></div></div><div class="form-group"><label>Safety Stock Units</label><input type="number" id="ro3" value="200"/></div>`, "Calculate Reorder Point"); document.getElementById('run-btn').onclick=()=>{ const s=parseFloat(document.getElementById('ro1').value)||0, l=parseFloat(document.getElementById('ro2').value)||0, ss=parseFloat(document.getElementById('ro3').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Reorder Trigger Unit Count:</span><span class="highlight-val">${(s*l)+ss} Units</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"shopify-store-valuation-calculator", path:"shopify-store-valuation-calculator", name:"E-Commerce Business Valuation Calculator", category:"E-Commerce & Merchants", title:"Shopify & E-Commerce Valuation Calculator", description:"Estimate e-commerce business sale valuation multiples.", render:(c)=>{ c.innerHTML=renderCalcUi("Valuation", `<div class="grid-2"><div class="form-group"><label>Annual SDE / Net Profit</label><input type="number" id="v1" value="150000"/></div><div class="form-group"><label>Target Multiple (x)</label><input type="number" id="v2" value="3.5" step="0.1"/></div></div>`, "Estimate Valuation"); document.getElementById('run-btn').onclick=()=>{ const p=parseFloat(document.getElementById('v1').value)||0, m=parseFloat(document.getElementById('v2').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Estimated Sale Value:</span><span class="highlight-val">£${(p*m).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"wholesale-markup-calculator", path:"wholesale-markup-calculator", name:"Wholesale & Retail Keystone Markup", category:"E-Commerce & Merchants", title:"Wholesale to Retail Margin & Markup Calculator", description:"Calculate wholesale vs keystone retail pricing ladders.", render:(c)=>{ c.innerHTML=renderCalcUi("Keystone Markup", `<div class="form-group"><label>Cost Price (£)</label><input type="number" id="wm1" value="10"/></div>`, "Calculate Price Ladder"); document.getElementById('run-btn').onclick=()=>{ const c=parseFloat(document.getElementById('wm1').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Wholesale Price (2x):</span><span>£${(c*2).toFixed(2)}</span></div><div class="result-row"><span>Retail MSRP (4x):</span><span class="highlight-val">£${(c*4).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"product-description-ai-generator", path:"product-description-ai-generator", name:"AI E-Commerce Product Description Generator", category:"E-Commerce & Merchants", title:"AI E-Commerce Product Copywriter", description:"Generate SEO-friendly e-commerce product descriptions using AI.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Product Input</div><div class="form-group"><label>Product Name & Key Features</label><input type="text" id="p1" value="Ergonomic Bamboo Standing Desk Converter"/></div><button class="btn btn-ai" id="run-btn">✨ Generate Product Copy with AI</button></div><div class="card" id="res-card" style="display:none;"><div class="card-title">Generated Copy</div><textarea class="text-output" id="out" style="height:150px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('res-card').style.display='block'; document.getElementById('out').value="Writing copy..."; try{ document.getElementById('out').value=await requestAI("Write an engaging, SEO-optimized e-commerce product description for: "+document.getElementById('p1').value, "Write high converting sales copy."); }catch(e){alert(e.message);} }; } },
+      { id:"customs-tariff-estimator", path:"customs-tariff-estimator", name:"Import Customs & Duty Tax Estimator", category:"E-Commerce & Merchants", title:"Import Customs Duty & Tariff Estimator", description:"Calculate estimated import duties and taxes on overseas shipments.", render:(c)=>{ c.innerHTML=renderCalcUi("Duty Estimator", `<div class="grid-2"><div class="form-group"><label>Shipment Value</label><input type="number" id="ct1" value="5000"/></div><div class="form-group"><label>Duty Rate (%)</label><input type="number" id="ct2" value="4.5"/></div></div>`, "Estimate Tax"); document.getElementById('run-btn').onclick=()=>{ const v=parseFloat(document.getElementById('ct1').value)||0, r=parseFloat(document.getElementById('ct2').value)||0, duty=v*(r/100); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Estimated Import Duty:</span><span class="highlight-val">£${duty.toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+
+      // CATEGORY 3: DEVELOPER & DATA
+      { id:"json-formatter-validator", path:"json-formatter-validator", name:"JSON Formatter & Minifier", category:"Developer & Data", title:"JSON Formatter & Validator", description:"Format, validate, and minify JSON data strings online.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">JSON Input</div><textarea class="text-output" id="ji" style="height:120px;">{"test":1,"active":true}</textarea><div class="grid-2" style="margin-top:0.5rem;"><button class="btn" id="f-btn">Format</button><button class="btn" id="m-btn" style="background:var(--bg-card); color:#fff;">Minify</button></div></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="jo" style="height:140px;" readonly></textarea></div>`; document.getElementById('f-btn').onclick=()=>{ try{ document.getElementById('jo').value=JSON.stringify(JSON.parse(document.getElementById('ji').value),null,2); document.getElementById('rc').style.display='block'; }catch(e){alert("Invalid JSON");} }; document.getElementById('m-btn').onclick=()=>{ try{ document.getElementById('jo').value=JSON.stringify(JSON.parse(document.getElementById('ji').value)); document.getElementById('rc').style.display='block'; }catch(e){alert("Invalid JSON");} }; } },
+      { id:"base64-encoder-decoder", path:"base64-encoder-decoder", name:"Base64 Encoder & Decoder", category:"Developer & Data", title:"Base64 String Encoder & Decoder", description:"Encode text and binary data into Base64 format or decode back to plain text.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Base64 Input</div><textarea class="text-output" id="bi" style="height:100px;"></textarea><div class="grid-2" style="margin-top:0.5rem;"><button class="btn" id="e-btn">Encode</button><button class="btn" id="d-btn" style="background:var(--bg-card); color:#fff;">Decode</button></div></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="bo" style="height:100px;" readonly></textarea></div>`; document.getElementById('e-btn').onclick=()=>{ document.getElementById('bo').value=btoa(document.getElementById('bi').value); document.getElementById('rc').style.display='block'; }; document.getElementById('d-btn').onclick=()=>{ try{ document.getElementById('bo').value=atob(document.getElementById('bi').value); document.getElementById('rc').style.display='block'; }catch(e){alert("Invalid Base64");} }; } },
+      { id:"cron-expression-translator", path:"cron-expression-translator", name:"Cron Schedule Translator", category:"Developer & Data", title:"Cron Expression Schedule Translator", description:"Translate complex crontab expressions into plain human-readable schedule explanations using AI.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Cron Input</div><input type="text" id="ci" value="*/15 9-17 * * 1-5"/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Explain Cron with AI</button></div><div class="card" id="rc" style="display:none;"><div id="co" style="font-size:0.9rem; line-height:1.5;"></div></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('co').innerText="Analyzing..."; try{ document.getElementById('co').innerText=await requestAI("Explain this cron expression in detail: "+document.getElementById('ci').value, "Devops cron explainer."); }catch(e){alert(e.message);} }; } },
+      { id:"url-encoder-decoder", path:"url-encoder-decoder", name:"URL Parameter Encoder / Decoder", category:"Developer & Data", title:"URL Component Encoder & Decoder", description:"Encode special characters into valid URL query strings or decode encoded URLs.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">URL Input</div><input type="text" id="ui" value="https://example.com/query?q=hello world"/><div class="grid-2" style="margin-top:0.5rem;"><button class="btn" id="e-btn">Encode</button><button class="btn" id="d-btn" style="background:var(--bg-card); color:#fff;">Decode</button></div></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="uo" style="height:80px;" readonly></textarea></div>`; document.getElementById('e-btn').onclick=()=>{ document.getElementById('uo').value=encodeURIComponent(document.getElementById('ui').value); document.getElementById('rc').style.display='block'; }; document.getElementById('d-btn').onclick=()=>{ document.getElementById('uo').value=decodeURIComponent(document.getElementById('ui').value); document.getElementById('rc').style.display='block'; }; } },
+      { id:"regex-pattern-tester-generator", path:"regex-pattern-tester-generator", name:"Regex Generator & Explainer AI", category:"Developer & Data", title:"AI Regular Expression Generator", description:"Generate complex regular expressions instantly using AI text prompts.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Regex Goal</div><input type="text" id="rg" value="Match UK postcodes or US ZIP codes"/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Generate Regex with AI</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="ro" style="height:120px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('ro').value="Generating regex..."; try{ document.getElementById('ro').value=await requestAI("Write a regular expression pattern for: "+document.getElementById('rg').value, "Regex expert assistant."); }catch(e){alert(e.message);} }; } },
+      { id:"jwt-decoder-inspector", path:"jwt-decoder-inspector", name:"JWT Token Decoder & Header Inspector", category:"Developer & Data", title:"JSON Web Token (JWT) Inspector", description:"Decode and inspect JSON Web Token headers and payload data securely in your browser.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">JWT String</div><textarea class="text-output" id="ji" style="height:80px;"></textarea><button class="btn" id="run-btn">Decode Payload</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="jo" style="height:120px;" readonly></textarea></div>`; document.getElementById('run-btn').onclick=()=>{ try{ const parts=document.getElementById('ji').value.split('.'); document.getElementById('jo').value=JSON.stringify(JSON.parse(atob(parts[1])),null,2); document.getElementById('rc').style.display='block'; }catch(e){alert("Invalid JWT string");} }; } },
+      { id:"sql-query-formatter-ai", path:"sql-query-formatter-ai", name:"SQL Query Formatter & AI Optimizer", category:"Developer & Data", title:"SQL Formatter & Query Optimizer", description:"Format and optimize SQL query performance using AI assistance.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">SQL Query</div><textarea class="text-output" id="sq" style="height:100px;">SELECT u.id, u.name FROM users u WHERE u.active = 1</textarea><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Optimize Query with AI</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="so" style="height:120px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('so').value="Analyzing SQL..."; try{ document.getElementById('so').value=await requestAI("Optimize this SQL query for performance and readability: "+document.getElementById('sq').value, "Database DBA expert."); }catch(e){alert(e.message);} }; } },
+      { id:"curl-to-fetch-converter", path:"curl-to-fetch-converter", name:"cURL to JavaScript Fetch / Python Converter", category:"Developer & Data", title:"cURL Request Code Converter", description:"Convert cURL command line requests into modern JavaScript fetch() and Python code.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">cURL Command</div><input type="text" id="cc" value="curl -X POST https://api.com/data -d '{\"key\":\"val\"}'"/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Convert to JS Fetch & Python</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="co" style="height:140px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('co').value="Converting..."; try{ document.getElementById('co').value=await requestAI("Convert this cURL command into JavaScript fetch() code and Python requests code: "+document.getElementById('cc').value, "API developer assistant."); }catch(e){alert(e.message);} }; } },
+      { id:"markdown-to-html-converter", path:"markdown-to-html-converter", name:"Markdown to Clean HTML Converter", category:"Developer & Data", title:"Markdown to HTML Converter", description:"Convert Markdown text markup into clean, formatted HTML code.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Markdown Input</div><textarea class="text-output" id="mi" style="height:100px;"># Title
+**Bold text** and *italics*.</textarea><button class="btn" id="run-btn">Convert to HTML</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="ho" style="height:100px;" readonly></textarea></div>`; document.getElementById('run-btn').onclick=()=>{ const m=document.getElementById('mi').value.replace(/^# (.*$)/gim, '<h1>$1</h1>').replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>').replace(/\*(.*)\*/gim, '<em>$1</em>'); document.getElementById('ho').value=m; document.getElementById('rc').style.display='block'; }; } },
+      { id:"uuid-guid-generator", path:"uuid-guid-generator", name:"UUID v4 & GUID Generator", category:"Developer & Data", title:"Universal UUID / GUID Batch Generator", description:"Generate unique UUID v4 identifiers.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">UUID Batch</div><button class="btn" id="run-btn">Generate 5 New UUIDs</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="uo" style="height:120px;" readonly></textarea></div>`; document.getElementById('run-btn').onclick=()=>{ const uuids=Array.from({length:5},()=>'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0,v=c=='x'?r:(r&0x3|0x8);return v.toString(16);})); document.getElementById('uo').value=uuids.join('
+'); document.getElementById('rc').style.display='block'; }; } },
+
+      // CATEGORY 4: MARKETING & CONTENT
+      { id:"utm-campaign-builder", path:"utm-campaign-builder", name:"UTM Campaign URL Link Generator", category:"Marketing & Content", title:"Google Analytics UTM Link Generator", description:"Build UTM campaign tracking links.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">UTM Parameters</div><div class="form-group"><label>URL</label><input type="text" id="u1" value="https://site.com"/></div><div class="grid-2"><div class="form-group"><label>Source</label><input type="text" id="u2" value="newsletter"/></div><div class="form-group"><label>Medium</label><input type="text" id="u3" value="email"/></div></div><button class="btn" id="run-btn">Generate Link</button></div><div class="card" id="rc" style="display:none;"><input type="text" id="uo" readonly/></div>`; document.getElementById('run-btn').onclick=()=>{ document.getElementById('uo').value=`${document.getElementById('u1').value}?utm_source=${encodeURIComponent(document.getElementById('u2').value)}&utm_medium=${encodeURIComponent(document.getElementById('u3').value)}`; document.getElementById('rc').style.display='block'; }; } },
+      { id:"readability-score-analyzer", path:"readability-score-analyzer", name:"Copy Readability & AI Polisher", category:"Marketing & Content", title:"Copy Readability & Conversion Auditor", description:"Polish marketing copy for higher conversion and readability.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Raw Copy</div><textarea class="text-output" id="rt" style="height:100px;">Our platform delivers high velocity digital utilities.</textarea><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Rewrite with AI</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="ro" style="height:120px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('ro').value="Polishing copy..."; try{ document.getElementById('ro').value=await requestAI("Rewrite this marketing copy for maximum conversion and clarity: "+document.getElementById('rt').value, "Conversion copywriter."); }catch(e){alert(e.message);} }; } },
+      { id:"roas-ad-spend-calculator", path:"roas-ad-spend-calculator", name:"Return on Ad Spend (ROAS) Calculator", category:"Marketing & Content", title:"ROAS & Breakeven Ad Spend Calculator", description:"Calculate ROAS percentage.", render:(c)=>{ c.innerHTML=renderCalcUi("ROAS Metrics", `<div class="grid-2"><div class="form-group"><label>Ad Spend</label><input type="number" id="ro1" value="1000"/></div><div class="form-group"><label>Revenue</label><input type="number" id="ro2" value="4000"/></div></div>`, "Calculate ROAS"); document.getElementById('run-btn').onclick=()=>{ const s=parseFloat(document.getElementById('ro1').value)||0, r=parseFloat(document.getElementById('ro2').value)||0, roas=s>0?r/s:0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>ROAS Multiplier:</span><span>${roas.toFixed(2)}x</span></div><div class="result-row"><span>ROAS Percentage:</span><span class="highlight-val">${(roas*100).toFixed(0)}%</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"meta-title-description-length", path:"meta-title-description-length", name:"SEO Title & Meta Description Audit", category:"Marketing & Content", title:"SEO SERP Pixel & Character Auditor", description:"Audit SERP character lengths.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">SERP Copy</div><div class="form-group"><label>Meta Title</label><input type="text" id="st" value="Best B2B Late Invoice Interest Calculator | OmniTools"/></div><button class="btn" id="run-btn">Audit Length</button></div><div class="card" id="rc" style="display:none;"><div id="so"></div></div>`; document.getElementById('run-btn').onclick=()=>{ const len=document.getElementById('st').value.length; document.getElementById('so').innerHTML=`<div class="result-row"><span>Character Count:</span><span class="highlight-val">${len} chars ${len<=60?'(OK)':'(Too Long)'}</span></div>`; document.getElementById('rc').style.display='block'; }; } },
+      { id:"cold-email-subject-generator", path:"cold-email-subject-generator", name:"AI Cold Email Subject Line Writer", category:"Marketing & Content", title:"AI Cold Email Subject Line Writer", description:"Generate open-rate optimized subject lines.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Campaign Pitch</div><input type="text" id="cp" value="B2B Accounting software demo for CFOs"/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Generate 5 Subject Lines</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="co" style="height:140px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('co').value="Writing subject lines..."; try{ document.getElementById('co').value=await requestAI("Generate 5 high open-rate cold email subject lines for: "+document.getElementById('cp').value, "Cold email copywriter."); }catch(e){alert(e.message);} }; } },
+      { id:"customer-acquisition-cost-cac", path:"customer-acquisition-cost-cac", name:"Customer Acquisition Cost (CAC) Calculator", category:"Marketing & Content", title:"Customer Acquisition Cost (CAC) Calculator", description:"Calculate CAC across channels.", render:(c)=>{ c.innerHTML=renderCalcUi("CAC Metrics", `<div class="grid-2"><div class="form-group"><label>Total Marketing Spend</label><input type="number" id="c1" value="15000"/></div><div class="form-group"><label>New Customers</label><input type="number" id="c2" value="300"/></div></div>`, "Calculate CAC"); document.getElementById('run-btn').onclick=()=>{ const s=parseFloat(document.getElementById('c1').value)||0, n=parseFloat(document.getElementById('c2').value)||1; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Blended CAC:</span><span class="highlight-val">£${(s/n).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"customer-lifetime-value-ltv", path:"customer-lifetime-value-ltv", name:"Customer Lifetime Value (LTV) Calculator", category:"Marketing & Content", title:"LTV & LTV:CAC Ratio Calculator", description:"Calculate long-term LTV value.", render:(c)=>{ c.innerHTML=renderCalcUi("LTV Metrics", `<div class="grid-2"><div class="form-group"><label>ARPU / Mo</label><input type="number" id="lt1" value="50"/></div><div class="form-group"><label>Lifespan (Months)</label><input type="number" id="lt2" value="24"/></div></div>`, "Calculate LTV"); document.getElementById('run-btn').onclick=()=>{ const a=parseFloat(document.getElementById('lt1').value)||0, m=parseFloat(document.getElementById('lt2').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Customer LTV:</span><span class="highlight-val">£${(a*m).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"social-media-post-formatter", path:"social-media-post-formatter", name:"Social Media Unicode Font Generator", category:"Marketing & Content", title:"LinkedIn & Social Media Font Formatter", description:"Convert text to bold unicode fonts.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Text Input</div><input type="text" id="si" value="Important Announcement"/><button class="btn" id="run-btn">Generate Bold Text</button></div><div class="card" id="rc" style="display:none;"><input type="text" id="so" readonly/></div>`; document.getElementById('run-btn').onclick=()=>{ const str=document.getElementById('si').value; document.getElementById('so').value=str.split('').map(c=>c>='A'&&c<='Z'?String.fromCodePoint(c.codePointAt(0)+120205):c>='a'&&c<='z'?String.fromCodePoint(c.codePointAt(0)+120199):c).join(''); document.getElementById('rc').style.display='block'; }; } },
+      { id:"press-release-headline-generator", path:"press-release-headline-generator", name:"Press Release Headline AI Generator", category:"Marketing & Content", title:"AI PR Headline & Angle Generator", description:"Generate PR angles.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">News Event</div><input type="text" id="pr1" value="OmniTools raises $2M seed round for developer utility suite"/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Draft PR Angles with AI</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="pro" style="height:140px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('pro').value="Generating PR angles..."; try{ document.getElementById('pro').value=await requestAI("Generate 3 press release headlines and subheadings for: "+document.getElementById('pr1').value, "PR manager."); }catch(e){alert(e.message);} }; } },
+      { id:"headline-analyzer-score", path:"headline-analyzer-score", name:"Blog & Ad Headline Emotional Score", category:"Marketing & Content", title:"Headline Power & Sentiment Analyzer", description:"Analyze headline strength.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Headline Text</div><input type="text" id="ha1" value="10 Proven Strategies to Double Your SaaS MRR in 30 Days"/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Analyze Headline with AI</button></div><div class="card" id="rc" style="display:none;"><div id="hao" style="font-size:0.9rem; line-height:1.5;"></div></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('hao').innerText="Analyzing sentiment..."; try{ document.getElementById('hao').innerText=await requestAI("Score this headline out of 100 for emotional resonance and power words: "+document.getElementById('ha1').value, "Copywriting specialist."); }catch(e){alert(e.message);} }; } },
+
+      // CATEGORY 5: TIME & GLOBAL OPERATIONS
+      { id:"global-workhour-planner", path:"global-workhour-planner", name:"Global Work-Hours Overlap Planner", category:"Time & Global Operations", title:"Global Team Work-Hour Overlap Planner", description:"Find team timezone overlap windows.", render:(c)=>{ c.innerHTML=renderCalcUi("Timezone Overlap", `<div class="grid-2"><div class="form-group"><label>Base Location</label><input type="text" value="London (GMT)" readonly/></div><div class="form-group"><label>Target Location</label><select id="tz"><option value="-5">New York (EST, -5h)</option><option value="9">Tokyo (JST, +9h)</option></select></div></div>`, "Find Overlap"); document.getElementById('run-btn').onclick=()=>{ document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Working Overlap Window:</span><span class="highlight-val">14:00 - 18:00 GMT (4 Hours)</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"epoch-timestamp-converter", path:"epoch-timestamp-converter", name:"Unix Epoch Timestamp Converter", category:"Time & Global Operations", title:"Unix Epoch Timestamp Converter", description:"Convert Unix epoch to UTC dates.", render:(c)=>{ c.innerHTML=renderCalcUi("Epoch Converter", `<div class="form-group"><label>Epoch Seconds</label><input type="number" id="ep" value="1700000000"/></div>`, "Convert to UTC"); document.getElementById('run-btn').onclick=()=>{ const e=parseInt(document.getElementById('ep').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>UTC Date:</span><span class="highlight-val">${new Date(e*1000).toUTCString()}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"workday-date-calculator", path:"workday-date-calculator", name:"Business Working Days Calculator", category:"Time & Global Operations", title:"Business Days Deadline Projector", description:"Add business days to start date.", render:(c)=>{ c.innerHTML=renderCalcUi("Working Days", `<div class="grid-2"><div class="form-group"><label>Start Date</label><input type="date" id="ws"/></div><div class="form-group"><label>Days to Add</label><input type="number" id="wd" value="10"/></div></div>`, "Calculate Deadline"); document.getElementById('ws').value=new Date().toISOString().split('T')[0]; document.getElementById('run-btn').onclick=()=>{ let dt=new Date(document.getElementById('ws').value), add=parseInt(document.getElementById('wd').value)||0; while(add>0){ dt.setDate(dt.getDate()+1); if(dt.getDay()!==0&&dt.getDay()!==6) add--; } document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Projected Deadline:</span><span class="highlight-val">${dt.toDateString()}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"iso-week-number-finder", path:"iso-week-number-finder", name:"ISO Calendar Week Number Lookup", category:"Time & Global Operations", title:"ISO-8601 Calendar Week Lookup", description:"Find ISO week numbers.", render:(c)=>{ c.innerHTML=renderCalcUi("Week Lookup", `<div class="form-group"><label>Date</label><input type="date" id="isod"/></div>`, "Find Week"); document.getElementById('isod').value=new Date().toISOString().split('T')[0]; document.getElementById('run-btn').onclick=()=>{ const d=new Date(document.getElementById('isod').value); d.setHours(0,0,0,0); d.setDate(d.getDate()+3-(d.getDay()+6)%7); const w1=new Date(d.getFullYear(),0,4); const wNo=1+Math.round(((d.getTime()-w1.getTime())/86400000-3+(w1.getDay()+6)%7)/7); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>ISO Week:</span><span class="highlight-val">Week ${wNo}, ${d.getFullYear()}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"meeting-agenda-ai-generator", path:"meeting-agenda-ai-generator", name:"AI Executive Meeting Agenda Generator", category:"Time & Global Operations", title:"AI Executive Meeting Agenda Synthesizer", description:"Build meeting agendas.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Meeting Goal</div><input type="text" id="mg" value="Q4 Product Roadmap & Engineering Resource Planning"/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Draft Agenda with AI</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="mo" style="height:140px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('mo').value="Drafting agenda..."; try{ document.getElementById('mo').value=await requestAI("Draft a structured 45-minute executive meeting agenda for: "+document.getElementById('mg').value, "Chief of staff assistant."); }catch(e){alert(e.message);} }; } },
+      { id:"out-of-office-email-generator", path:"out-of-office-email-generator", name:"AI Out of Office Auto-Responder", category:"Time & Global Operations", title:"AI Professional Out-Of-Office Generator", description:"Draft OOO emails.", render:(c)=>{ c.innerHTML=`<div class="card"><div class="card-title">Absence Details</div><input type="text" id="oo1" value="On vacation from Nov 10 to Nov 20. Urgent issues to Sarah."/><button class="btn btn-ai" id="run-btn" style="margin-top:0.75rem;">✨ Draft OOO Responder with AI</button></div><div class="card" id="rc" style="display:none;"><textarea class="text-output" id="ooo" style="height:120px;"></textarea></div>`; document.getElementById('run-btn').onclick=async()=>{ document.getElementById('rc').style.display='block'; document.getElementById('ooo').value="Writing OOO response..."; try{ document.getElementById('ooo').value=await requestAI("Draft a professional out-of-office email response for: "+document.getElementById('oo1').value, "Executive assistant."); }catch(e){alert(e.message);} }; } },
+      { id:"flight-time-calculator", path:"flight-time-calculator", name:"Flight Duration & Timezone Arrival Calculator", category:"Time & Global Operations", title:"Flight Duration & Local Arrival Calculator", description:"Calculate arrival local times.", render:(c)=>{ c.innerHTML=renderCalcUi("Flight Arrival", `<div class="grid-2"><div class="form-group"><label>Departure (GMT)</label><input type="text" value="10:00"/></div><div class="form-group"><label>Flight Hrs</label><input type="number" id="fh" value="7"/></div></div>`, "Calculate Arrival"); document.getElementById('run-btn').onclick=()=>{ document.getElementById('res-box').innerHTML=`<div class="result-row"><span>NY Arrival (EST, -5h):</span><span class="highlight-val">12:00 Local Time</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"sprint-velocity-calculator", path:"sprint-velocity-calculator", name:"Agile Sprint Velocity & Capacity Calculator", category:"Time & Global Operations", title:"Agile Sprint Capacity & Story Point Calculator", description:"Calculate sprint story point velocity.", render:(c)=>{ c.innerHTML=renderCalcUi("Sprint Capacity", `<div class="grid-2"><div class="form-group"><label>Dev Count</label><input type="number" id="sc1" value="6"/></div><div class="form-group"><label>Days / Sprint</label><input type="number" id="sc2" value="10"/></div></div>`, "Calculate Points"); document.getElementById('run-btn').onclick=()=>{ const d=parseFloat(document.getElementById('sc1').value)||0, dy=parseFloat(document.getElementById('sc2').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Estimated Story Point Capacity:</span><span class="highlight-val">${(d*dy*0.8).toFixed(0)} Points</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"timecard-hours-calculator", path:"timecard-hours-calculator", name:"Employee Timecard & Overtime Calculator", category:"Time & Global Operations", title:"Weekly Timecard & Overtime Hours Calculator", description:"Calculate total weekly hours worked.", render:(c)=>{ c.innerHTML=renderCalcUi("Timecard", `<div class="grid-2"><div class="form-group"><label>Mon-Fri Daily Hrs</label><input type="number" id="tc1" value="9"/></div><div class="form-group"><label>Hourly Pay Rate</label><input type="number" id="tc2" value="25"/></div></div>`, "Calculate Pay"); document.getElementById('run-btn').onclick=()=>{ const h=parseFloat(document.getElementById('tc1').value)||0, r=parseFloat(document.getElementById('tc2').value)||0, tot=h*5, ot=Math.max(0,tot-40), reg=tot-ot; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Gross Pay:</span><span class="highlight-val">£${((reg*r)+(ot*r*1.5)).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"project-gantt-duration-calculator", path:"project-gantt-duration-calculator", name:"Project Critical Path Duration Estimator", category:"Time & Global Operations", title:"Project Critical Path Duration Estimator", description:"Calculate critical path duration.", render:(c)=>{ c.innerHTML=renderCalcUi("Critical Path", `<div class="form-group"><label>Sequential Task Days (comma separated)</label><input type="text" id="cp1" value="5, 12, 8, 4"/></div>`, "Calculate Total Days"); document.getElementById('run-btn').onclick=()=>{ const sum=document.getElementById('cp1').value.split(',').reduce((a,b)=>a+(parseFloat(b)||0),0); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Total Critical Path:</span><span class="highlight-val">${sum} Days</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+
+      // CATEGORY 6: REAL ESTATE & PERSONAL FINANCE
+      { id:"mortgage-affordability-calculator", path:"mortgage-affordability-calculator", name:"Mortgage Affordability & Borrowing Limit", category:"Real Estate & Finance", title:"Mortgage Borrowing Capacity Calculator", description:"Calculate borrowing capacity multiples.", render:(c)=>{ c.innerHTML=renderCalcUi("Borrowing Limit", `<div class="grid-2"><div class="form-group"><label>Gross Income 1</label><input type="number" id="mb1" value="55000"/></div><div class="form-group"><label>Gross Income 2</label><input type="number" id="mb2" value="35000"/></div></div>`, "Calculate Limit"); document.getElementById('run-btn').onclick=()=>{ const i1=parseFloat(document.getElementById('mb1').value)||0, i2=parseFloat(document.getElementById('mb2').value)||0, tot=i1+i2; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Max Borrowing (4.5x):</span><span class="highlight-val">£${(tot*4.5).toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"stamp-duty-sdlt-calculator", path:"stamp-duty-sdlt-calculator", name:"UK Stamp Duty (SDLT) Tax Calculator", category:"Real Estate & Finance", title:"UK Stamp Duty Land Tax (SDLT) Calculator", description:"Calculate home buyer stamp duty tax.", render:(c)=>{ c.innerHTML=renderCalcUi("Stamp Duty", `<div class="form-group"><label>Property Purchase Price (£)</label><input type="number" id="sd1" value="450000"/></div>`, "Calculate SDLT"); document.getElementById('run-btn').onclick=()=>{ const p=parseFloat(document.getElementById('sd1').value)||0, tax=p>250000?(p-250000)*0.05:0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Estimated Stamp Duty Tax:</span><span class="highlight-val">£${tax.toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"rental-yield-property-calculator", path:"rental-yield-property-calculator", name:"Buy-To-Let Gross & Net Rental Yield", category:"Real Estate & Finance", title:"Buy-To-Let Rental Yield Calculator", description:"Calculate property investment ROI.", render:(c)=>{ c.innerHTML=renderCalcUi("Rental Yield", `<div class="grid-2"><div class="form-group"><label>Property Price</label><input type="number" id="ry1" value="250000"/></div><div class="form-group"><label>Monthly Rent</label><input type="number" id="ry2" value="1250"/></div></div>`, "Calculate Yield"); document.getElementById('run-btn').onclick=()=>{ const p=parseFloat(document.getElementById('ry1').value)||0, r=parseFloat(document.getElementById('ry2').value)||0, yr=r*12; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Gross Yield:</span><span class="highlight-val">${((yr/p)*100).toFixed(2)}%</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"compound-interest-wealth-calculator", path:"compound-interest-wealth-calculator", name:"Compound Interest Wealth Growth Calculator", category:"Real Estate & Finance", title:"Compound Interest & Investment Growth Calculator", description:"Project long-term compound interest.", render:(c)=>{ c.innerHTML=renderCalcUi("Compound Growth", `<div class="grid-2"><div class="form-group"><label>Initial Deposit</label><input type="number" id="ci1" value="10000"/></div><div class="form-group"><label>Monthly Contribution</label><input type="number" id="ci2" value="500"/></div></div><div class="form-group"><label>Annual Return (%)</label><input type="number" id="ci3" value="7"/></div>`, "Project 10 Years"); document.getElementById('run-btn').onclick=()=>{ const init=parseFloat(document.getElementById('ci1').value)||0, m=parseFloat(document.getElementById('ci2').value)||0, r=(parseFloat(document.getElementById('ci3').value)||0)/100; let tot=init; for(let i=0;i<120;i++){ tot=(tot+m)*(1+r/12); } document.getElementById('res-box').innerHTML=`<div class="result-row"><span>10-Year Portfolio Value:</span><span class="highlight-val">£${tot.toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"crypto-profit-loss-calculator", path:"crypto-profit-loss-calculator", name:"Crypto & Stock Profit / Loss Calculator", category:"Real Estate & Finance", title:"Crypto & Asset Investment Return Calculator", description:"Calculate trade return percentage.", render:(c)=>{ c.innerHTML=renderCalcUi("Trade Return", `<div class="grid-2"><div class="form-group"><label>Buy Price</label><input type="number" id="cp1" value="25000"/></div><div class="form-group"><label>Sell Price</label><input type="number" id="cp2" value="38000"/></div></div>`, "Calculate ROI"); document.getElementById('run-btn').onclick=()=>{ const b=parseFloat(document.getElementById('cp1').value)||0, s=parseFloat(document.getElementById('cp2').value)||0, gain=s-b; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Net Gain:</span><span class="highlight-val">£${gain.toFixed(2)} (${((gain/b)*100).toFixed(1)}%)</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"loan-amortization-schedule", path:"loan-amortization-schedule", name:"Loan Amortization & Interest Calculator", category:"Real Estate & Finance", title:"Loan Amortization Monthly Payment Calculator", description:"Calculate monthly loan repayment.", render:(c)=>{ c.innerHTML=renderCalcUi("Loan Payment", `<div class="grid-2"><div class="form-group"><label>Loan Amount</label><input type="number" id="la1" value="20000"/></div><div class="form-group"><label>Interest Rate (%)</label><input type="number" id="la2" value="6.5"/></div></div>`, "Calculate Payment"); document.getElementById('run-btn').onclick=()=>{ const a=parseFloat(document.getElementById('la1').value)||0, r=(parseFloat(document.getElementById('la2').value)||0)/100/12, n=60, pmtt=(a*r*(Math.pow(1+r,n)))/(Math.pow(1+r,n)-1); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>5-Year Monthly Payment:</span><span class="highlight-val">£${pmtt.toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"pension-pot-retirement-planner", path:"pension-pot-retirement-planner", name:"Pension Pot & Retirement Income Planner", category:"Real Estate & Finance", title:"Pension Drawdown & Retirement Income Calculator", description:"Project annual retirement drawdown.", render:(c)=>{ c.innerHTML=renderCalcUi("Retirement Drawdown", `<div class="form-group"><label>Target Pension Pot (£)</label><input type="number" id="pp1" value="500000"/></div>`, "Calculate 4% Drawdown"); document.getElementById('run-btn').onclick=()=>{ const p=parseFloat(document.getElementById('pp1').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Safe Annual Drawdown (4% Rule):</span><span class="highlight-val">£${(p*0.04).toFixed(2)} / Year</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"inflation-purchasing-power-calculator", path:"inflation-purchasing-power-calculator", name:"Inflation & Purchasing Power Calculator", category:"Real Estate & Finance", title:"Historical Inflation & Cash Purchasing Power Calculator", description:"Calculate cash erosion over time.", render:(c)=>{ c.innerHTML=renderCalcUi("Purchasing Power", `<div class="grid-2"><div class="form-group"><label>Cash Amount</label><input type="number" id="inf1" value="50000"/></div><div class="form-group"><label>Annual Inflation (%)</label><input type="number" id="inf2" value="3.5"/></div></div>`, "Project 10 Years Erosion"); document.getElementById('run-btn').onclick=()=>{ const c=parseFloat(document.getElementById('inf1').value)||0, r=(parseFloat(document.getElementById('inf2').value)||0)/100, val=c/Math.pow(1+r,10); document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Real Value in 10 Years:</span><span class="highlight-val">£${val.toFixed(2)}</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"car-lease-vs-buy-calculator", path:"car-lease-vs-buy-calculator", name:"Car Lease vs Finance Buy Calculator", category:"Real Estate & Finance", title:"Vehicle Lease vs Purchase Comparison Calculator", description:"Compare vehicle lease vs buy cost.", render:(c)=>{ c.innerHTML=renderCalcUi("Lease vs Buy", `<div class="grid-2"><div class="form-group"><label>3-Yr Lease Total</label><input type="number" id="cb1" value="12000"/></div><div class="form-group"><label>3-Yr Buy Depreciation</label><input type="number" id="cb2" value="14500"/></div></div>`, "Compare Cost"); document.getElementById('run-btn').onclick=()=>{ const l=parseFloat(document.getElementById('cb1').value)||0, b=parseFloat(document.getElementById('cb2').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Leasing Savings:</span><span class="highlight-val">£${(b-l).toFixed(2)} Cheaper</span></div>`; document.getElementById('res-card').style.display='block'; }; } },
+      { id:"side-huddle-tax-threshold-checker", path:"side-huddle-tax-threshold-checker", name:"Side-Hustle Tax Allowance & Reporting Checker", category:"Real Estate & Finance", title:"Side-Hustle Tax Threshold & Reporting Checker", description:"Check statutory tax reporting limit.", render:(c)=>{ c.innerHTML=renderCalcUi("Side-Hustle Allowance", `<div class="form-group"><label>Annual Side-Hustle Gross Revenue (£)</label><input type="number" id="sh1" value="1200"/></div>`, "Check Reporting"); document.getElementById('run-btn').onclick=()=>{ const r=parseFloat(document.getElementById('sh1').value)||0; document.getElementById('res-box').innerHTML=`<div class="result-row"><span>Status (£1,000 Allowance):</span><span class="highlight-val">${r>1000?'Tax Return Required':'Tax Free (Under £1k)'}</span></div>`; document.getElementById('res-card').style.display='block'; }; } }
+    ];
+
+    function cleanPath(p) {
+      return (p || '').replace(/^[#/]+/, '');
+    }
+
+    function updateSEOMetadata(tool) {
+      const pageTitle = `${tool.title} — Free Online Tool | OmniTools`;
+      const canonicalHref = `${window.location.origin}/#/${tool.path}`;
+      
+      document.title = pageTitle;
+      document.getElementById('page-desc').setAttribute('content', tool.description);
+      document.getElementById('canonical-url').setAttribute('href', canonicalHref);
+
+      document.getElementById('og-title').setAttribute('content', pageTitle);
+      document.getElementById('og-desc').setAttribute('content', tool.description);
+      document.getElementById('og-url').setAttribute('content', canonicalHref);
+
+      document.getElementById('tw-title').setAttribute('content', pageTitle);
+      document.getElementById('tw-desc').setAttribute('content', tool.description);
+
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": tool.title,
+        "description": tool.description,
+        "url": canonicalHref,
+        "applicationCategory": tool.category,
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      };
+      document.getElementById('json-ld-schema').textContent = JSON.stringify(schemaData);
+    }
+
+    function initRouter() {
+      const container = document.getElementById('nav-container');
+      container.innerHTML = '';
+      const categories = {};
+      TOOL_REGISTRY.forEach(tool => {
+        if (!categories[tool.category]) categories[tool.category] = [];
+        categories[tool.category].push(tool);
+      });
+
+      for (const cat in categories) {
+        const catHeader = document.createElement('div');
+        catHeader.className = 'category-title';
+        catHeader.innerText = cat;
+        container.appendChild(catHeader);
+
+        categories[cat].forEach(tool => {
+          const a = document.createElement('a');
+          a.className = 'tool-nav-item';
+          a.href = '#/' + tool.path;
+          a.innerText = tool.name;
+          a.id = 'nav-' + tool.id;
+          container.appendChild(a);
+        });
+      }
+
+      window.addEventListener('hashchange', handleRoute);
+      handleRoute();
+    }
+
+    function handleRoute() {
+      const rawHash = window.location.hash;
+      const rawPath = window.location.pathname;
+      let targetPath = cleanPath(rawHash) || cleanPath(rawPath);
+      
+      let tool = TOOL_REGISTRY.find(t => t.path === targetPath);
+      if (!tool) {
+        tool = TOOL_REGISTRY[0];
+      }
+
+      document.querySelectorAll('.tool-nav-item').forEach(el => el.classList.remove('active'));
+      const activeNav = document.getElementById('nav-' + tool.id);
+      if (activeNav) activeNav.classList.add('active');
+
+      document.getElementById('tool-title').innerText = tool.title;
+      document.getElementById('tool-subtitle').innerText = `${tool.category} — Free Online Calculator & AI Utility`;
+
+      updateSEOMetadata(tool);
+
+      const root = document.getElementById('tool-app-root');
+      tool.render(root);
+    }
+
+    function filterTools() {
+      const query = document.getElementById('tool-search').value.toLowerCase();
+      document.querySelectorAll('.tool-nav-item').forEach(el => {
+        const match = el.innerText.toLowerCase().includes(query);
+        el.style.display = match ? 'block' : 'none';
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initRouter);
+    } else {
+      initRouter();
+    }
+  </script>
+</body>
+</html>
